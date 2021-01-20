@@ -14,6 +14,26 @@ class Blog(models.Model):
     image= models.ImageField(upload_to = 'images/')
 
 
+    #Providing formatting for pretty blogs
+    def summary(self):
+        '''Returns the first 100 characters of the big whole summary '''
+        return self.body[:100]
+
+    def pub_date_pretty(self):
+        '''Returns the published date in the proper format '''
+        return self.pub_date.strftime('%b %e %Y')
+
+
+    #Also we can change the appearance of name in Admin page like "Blog Project 1" to "title"
+    #for better remembering
+    def __str__(self):
+        '''__str__ is the name that is stored on admin page '''
+        return self.title
+
+
+
+
+
 #Add the Blog App to the settings (in the settings.py, under INSTALLED_APPS section)
 
 #Create a migration(python manage.py makemigrations)

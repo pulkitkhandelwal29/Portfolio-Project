@@ -124,7 +124,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+#for url purposes only
 STATIC_URL = '/static/'
+#This will create the static folder and will access everything from this directory
+STATIC_ROOT = BASE_DIR / 'static'
+
+#where to look for all our staticfiles(here we have keep data -- resume and photo)
+STATICFILES_DIRS= [
+    BASE_DIR / 'Portfolio/static/'
+]
+
+##Everthing we kept in our portfolio/static. Now it is the time of Django to get centralized static files that it requires
+## python manage.py collectstatic (it will create a static folder of static root and hurray)
+
 
 #this will create media folder and then create our images folder based on jobs model
 MEDIA_ROOT = BASE_DIR / 'media'

@@ -2,14 +2,15 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!--This function is important as it loads all the static files in the webapage so that we can give reference like Resume-->
     {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Portfolio">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Pulkit Khandelwal</title>
+    <title>{{ blog.title }}</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
 
 
@@ -51,7 +52,7 @@
           <a class="nav-link" href="http://twitter.com">Twitter</a>
           <!--Referencing the static folder and its file name-->
           <a class="nav-link" href="{% static 'resume.pdf' %}">Resume</a>
-          <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+          <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
         </div>
       </div>
     </div>
@@ -59,46 +60,13 @@
 </header>
 
 <main>
-
-  <section class="py-5 jumbotron text-center">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="jumbotron-heading">Hi I'm Pulkit Khandelwal</h1>
-        <p class="lead text-muted">Learning about Django</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Email Me</a>
-        </p>
-        <!-- Again Referencing the static file-->
-        <img src="{% static 'pulkit.jpg' %}">
-      </div>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-        <!-- (Very important) it will iterate through each job that we are receiving from views.py and prepare the code accordingly with the different values and images-->
-        {% for job in jobs.all %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ job.image.url }}">
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-              <div class="d-flex justify-content-between align-items-center">
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="container">
+    <h1 class='text-center pt-3'>{{ blog.title }}</h1>
+    <p class= 'text-center'>{{ blog.pub_date_pretty }}</p>
+    <img class="img-fluid" src="{{ blog.image.url }}">
+    <br><br>
+    <p>{{ blog.body }}</p>
   </div>
-
 </main>
 
 <footer class="text-muted">
