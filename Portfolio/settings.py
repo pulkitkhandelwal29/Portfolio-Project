@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'jobs.apps.JobsConfig',  #model path -- [appname,apps file,class name]
+    'jobs.apps.JobsConfig',  #model path -- [appname,apps.py file,class name]
     'blog.apps.BlogConfig',  #another blog model added
     'django.contrib.admin',
     'django.contrib.auth',
@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'portfoliodb',
         'USER':'postgres',
-        'PASSWORD':'toor',
+        'PASSWORD':'root',
         'HOST':'localhost',
         'PORT':'5432'
     }
@@ -142,5 +142,5 @@ STATICFILES_DIRS= [
 MEDIA_ROOT = BASE_DIR / 'media'
 
 #This name of media is no where related to the media directory, images will be stored there but
-# the name can be different. It can be "coolstuff" etc. It just appears in URL
+# the name can be different. It can be "coolstuff" etc. It just appears in URL in browser
 MEDIA_URL = '/media/'

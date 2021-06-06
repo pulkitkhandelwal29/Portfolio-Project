@@ -24,8 +24,9 @@ class Blog(models.Model):
         return self.pub_date.strftime('%b %e %Y')
 
 
-    #Also we can change the appearance of name in Admin page like "Blog Project 1" to "title"
+    #Also we can change the appearance of name in Admin page like "Blog Project 1" to "title" in the admin page (dashboard)
     #for better remembering
+    #By default it is coming like Blog project 1 and that becomes difficult when we want to edit it
     def __str__(self):
         '''__str__ is the name that is stored on admin page '''
         return self.title

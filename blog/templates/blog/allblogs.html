@@ -66,6 +66,7 @@
       <br><br>
       <h2>Latest Posts</h2>
       <hr>
+      <!--Accessing all blogs from Database object-->
       {% for blog in blogs.all %}
       <!--going to specific blog detail using blog id-->
       <a href="{% url 'detail' blog.id %}">

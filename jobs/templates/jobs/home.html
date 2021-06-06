@@ -52,6 +52,7 @@
             <a class="nav-link" href="http://twitter.com">Twitter</a>
             <!--Referencing the static folder and its file name-->
             <a class="nav-link" href="{% static 'resume.pdf' %}">Resume</a>
+            <!--accessing allblogs.html-->
             <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
           </div>
         </div>
@@ -81,11 +82,14 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
           <!-- (Very important) it will iterate through each job that we are receiving from views.py and prepare the code accordingly with the different values and images-->
+          <!--To get jobs here, we need to access all the jobs in views.py file and then it will render here in html file-->
           {% for job in jobs.all %}
           <div class="col">
             <div class="card shadow-sm">
+              <!--Accessing image from fields available in job models.py file-->
               <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ job.image.url }}">
               <div class="card-body">
+                <!--Accessing summary from fields available in job models.py file-->
                 <p class="card-text">{{ job.summary }}</p>
                 <div class="d-flex justify-content-between align-items-center">
                 </div>
@@ -104,6 +108,7 @@
 
   <footer class="text-muted">
     <div class="container text-center">
+      <!--Helps to get current year-->
       <p>© Pulkit Khandelwal {% now "Y" %}</p>
     </div>
   </footer>
